@@ -52,7 +52,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
       - name: Daily Release
         run: |
-          export IMG_REPO=lomtom
+          export IMG_REPO=${{ secrets.DOCKERHUB_USERNAME }}
           export GO_MODULE=on
           make docker-buildx-all-push IMG_REPO=lomtom
         working-directory: ./src/github.com/${{ github.repository }}
