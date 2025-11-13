@@ -49,7 +49,10 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Daily Release
-        run: make docker-buildx-all-push IMG_REPO=${{ secrets.DOCKERHUB_USERNAME }}
+        run: |
+          export IMG_REPO=lomtom
+          export GO_MODULE=on
+          make docker-buildx-all-push IMG_REPO=lomtom
         working-directory: ./src/github.com/${{ github.repository }}
 
       - name: Loginout DockerHub
