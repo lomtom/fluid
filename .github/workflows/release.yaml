@@ -54,7 +54,7 @@ jobs:
         run: |
           export IMG_REPO=${{ secrets.DOCKERHUB_USERNAME }}
           export GO_MODULE=on
-          make docker-buildx-all-push IMG_REPO=lomtom
+          make docker-buildx-all-push
         working-directory: ./src/github.com/${{ github.repository }}
 
       - name: Loginout DockerHub
